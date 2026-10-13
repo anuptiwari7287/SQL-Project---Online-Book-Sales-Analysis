@@ -20,8 +20,7 @@ sql-sales-analysis/
 │   ├── 02_sales_analysis_queries.sql
 │   └── original_practice_queries.sql
 ├── results/
-│   └── key_findings.md
-└── screenshots/
+│   └── key_findings.
     
 ```
 
