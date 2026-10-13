@@ -22,7 +22,7 @@ sql-sales-analysis/
 ├── results/
 │   └── key_findings.md
 └── screenshots/
-    └── (add your own SSMS screenshots here)
+    
 ```
 
 ## Tools and skills
