@@ -36,6 +36,67 @@ The supplied sample data has 500 books, 500 customers, and 500 order records. Th
 
 **Privacy check before publishing:** The customer file contains email addresses and phone numbers. Publish it only if the data is synthetic or you have permission to share it. Otherwise anonymize or remove those columns before committing.
 
+## Database Schema
+
+The Online Bookstore database consists of three relational tables: `Books`, `Customers`, and `Orders`. Primary and foreign keys define the relationships between books, customers, and sales transactions.
+
+### 1. Books Table
+
+Stores information about the bookstore's book catalog and inventory.
+
+| Column | Data Type | Description |
+|---|---|---|
+| Book_ID | INT | Primary key; unique book identifier |
+| Title | NVARCHAR(100) | Book title |
+| Author | NVARCHAR(100) | Author's name |
+| Genre | NVARCHAR(50) | Book genre |
+| Published_Year | INT | Year of publication |
+| Price | DECIMAL(10,2) | Book price |
+| Stock | INT | Available stock quantity |
+
+### 2. Customers Table
+
+Stores customer contact and location information.
+
+| Column | Data Type | Description |
+|---|---|---|
+| Customer_ID | INT | Primary key; unique customer identifier |
+| Name | VARCHAR(100) | Customer name |
+| Email | VARCHAR(100) | Customer email address |
+| Phone | VARCHAR(15) | Customer phone number |
+| City | VARCHAR(50) | Customer city |
+| Country | VARCHAR(150) | Customer country |
+
+### 3. Orders Table
+
+Stores order transaction details and links customers to books.
+
+| Column | Data Type | Description |
+|---|---|---|
+| Order_ID | INT | Primary key; unique order identifier |
+| Customer_ID | INT | Foreign key referencing Customers |
+| Book_ID | INT | Foreign key referencing Books |
+| Order_Date | DATE | Date of the order |
+| Quantity | INT | Number of books ordered |
+| Total_Amount | DECIMAL(10,2) | Total amount recorded for the order |
+
+### Entity Relationships
+
+- `Customers.Customer_ID` → `Orders.Customer_ID` (one customer can have multiple orders).
+- `Books.Book_ID` → `Orders.Book_ID` (one book can appear in multiple orders).
+- Each order record references one customer and one book.
+
+### Database Constraints
+
+- Primary keys uniquely identify records in each table.
+- Foreign keys maintain referential integrity between the three tables.
+- `Books.Published_Year` must be greater than zero.
+- `Books.Price` is required, and `Books.Stock` defaults to zero when not specified.
+
+### Schema Design Purpose
+
+This relational schema supports sales analysis, customer purchase behavior, book and genre performance, revenue trends, and inventory analysis using Microsoft SQL Server and T-SQL.
+
 ## How to run in SSMS
 
 ### 1. Create the database and tables
