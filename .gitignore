@@ -1,0 +1,20 @@
+# SQL Server / Visual Studio local files
+*.mdf
+*.ldf
+*.bak
+*.trn
+*.log
+*.user
+*.suo
+.vs/
+bin/
+obj/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Local secrets/configuration
+.env
+*.config.local
